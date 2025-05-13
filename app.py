@@ -7,7 +7,7 @@ with open('equations.json') as f:
     equations = json.load(f)
 
 # Search box
-query = st.text_input("Search for an equation")
+query = st.text_input("Search for an equation:")
 
 if query:
     # Create search strings from name and tags
@@ -16,26 +16,34 @@ if query:
     # Perform fuzzy search and get top 3 matches
     matches = process.extract(query, search_strings, limit=3)
     
-    for match in matches:
-        matched_string, score = match
-        index = search_strings.index(matched_string)
-        eq = equations[index]
-        
-        # Display equation details
-        st.subheader(eq['name'])
-        st.markdown(f"$$ {eq['latex_equation']} $$")
-        st.write("Nomenclature:")
-        for var, desc in eq['nomenclature']:
-            st.markdown(f"- \\( {var} \\): {desc}")
-        st.markdown(eq['description'])
-        
-        # Escape single quotes for JavaScript clipboard functionality
-        escaped_code = eq['code_equation'].replace("'", "\\'")
-        copy_button = f"""
-        <button onclick="navigator.clipboard.writeText('{escaped_code}')">
-            Copy to clipboard
-        </button>
-        """
-        st.markdown(copy_button, unsafe_allow_html=True)
+    # Extract names of the top 3 matches
+    match_names = [equations[search_strings.index(match[0])]['name'] for match in matches]
+    
+    # Let the user select one from the dropdown
+    selected_name = st.selectbox("Closest matches:", match_names)
+    
+    # Find the selected equation
+    selected_eq = next(eq for eq in equations if eq['name'] == selected_name)
+    
+    # Display the selected equation details
+    st.subheader(selected_eq['name'])
+    st.markdown(selected_eq['description'])
+    st.markdown(f"$$ {selected_eq['latex_equation']} $$")
+    
+    # Render nomenclature
+    st.write("where,")
+    for var, desc in selected_eq['nomenclature']:
+        st.markdown(f"$$ {var} $$, {desc}")
+    
+    # Show equation in code blocks for easy copy-paste
+    st.write("##### LaTeX code:")
+    st.code(selected_eq['latex_equation'])
+    st.write("##### Python code:")
+    st.code(selected_eq['code_equation'], language="python")
+
 else:
-    st.write("Enter a search query.")
+    st.write("Enter a search query to find an equation.")
+    if st.button("Show all equations"):
+        for eq in equations:
+            st.markdown(f"#### {eq['name']}")
+            st.markdown(f"$$ {eq['latex_equation']} $$")

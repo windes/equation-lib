@@ -33,5 +33,330 @@
         "description": "Defines the slope of a simple linear regression model.",
         "latex_equation": "\\alpha_1 = \\frac{\\sum (x_i - \\bar{x})(y_i - \\bar{y})}{\\sum (x_i - \\bar{x})^2}",
         "code_equation": "alpha_1 = sum((x[i] - x_mean) * (y[i] - y_mean)) / sum((x[i] - x_mean)**2)"
+    },
+    {
+        "name": "Ideal Gas Law",
+        "tags": ["Physics", "Thermodynamics", "Gases"],
+        "nomenclature": [
+            ["p", "pressure"],
+            ["V", "volume"],
+            ["n", "number of moles"],
+            ["R", "universal gas constant"],
+            ["T", "temperature in Kelvin"]
+        ],
+        "description": "Relates the pressure, volume, temperature, and number of moles of an ideal gas. It assumes no intermolecular forces and negligible molecular volume, applicable at low pressures and high temperatures.",
+        "latex_equation": "pV = nRT",
+        "code_equation": "p * V == n * R * T"
+    },
+    {
+        "name": "Reynolds Number",
+        "tags": ["Fluid Mechanics", "Dimensionless Numbers"],
+        "nomenclature": [
+            ["\\mathrm{Re}", "Reynolds number"],
+            ["\\rho", "fluid density"],
+            ["u", "mean velocity of the fluid"],
+            ["L", "characteristic length"],
+            ["\\mu", "dynamic viscosity of the fluid"]
+        ],
+        "description": "A dimensionless quantity used to predict whether fluid flow is laminar or turbulent, calculated as the ratio of inertial to viscous forces.",
+        "latex_equation": "\\mathrm{Re} = \\frac{\\rho u L}{\\mu}",
+        "code_equation": "Re = (rho * u * L) / mu"
+    },
+    {
+        "name": "Volume of a Sphere",
+        "tags": ["Geometry", "Sphere"],
+        "nomenclature": [
+            ["V", "volume of the sphere"],
+            ["r", "radius of the sphere"]
+        ],
+        "description": "Calculates the volume of a sphere given its radius.",
+        "latex_equation": "V = \\frac{4}{3} \\pi r^3",
+        "code_equation": "V = (4/3) * math.pi * r**3"
+    },
+    {
+        "name": "Volume of a Cylinder",
+        "tags": ["Geometry", "Cylinder"],
+        "nomenclature": [
+            ["V", "volume of the cylinder"],
+            ["r", "radius of the base"],
+            ["h", "height of the cylinder"]
+        ],
+        "description": "Computes the volume of a cylinder given the radius of its base and height.",
+        "latex_equation": "V = \\pi r^2 h",
+        "code_equation": "V = math.pi * r**2 * h"
+    },
+    {
+        "name": "Prandtl Number",
+        "tags": ["Fluid Mechanics", "Heat Transfer", "Dimensionless Numbers"],
+        "nomenclature": [
+            ["\\mathrm{Pr}", "Prandtl number"],
+            ["\\nu", "kinematic viscosity"],
+            ["\\alpha", "thermal diffusivity"]
+        ],
+        "description": "A dimensionless number representing the ratio of momentum diffusivity to thermal diffusivity, affecting the relative thickness of velocity and thermal boundary layers.",
+        "latex_equation": "\\mathrm{Pr} = \\frac{\\nu}{\\alpha}",
+        "code_equation": "Pr = nu / alpha"
+    },
+    {
+        "name": "Nusselt Number",
+        "tags": ["Heat Transfer", "Fluid Mechanics", "Dimensionless Numbers"],
+        "nomenclature": [
+            ["\\mathrm{Nu}", "Nusselt number"],
+            ["h", "convective heat transfer coefficient"],
+            ["L", "characteristic length"],
+            ["k", "thermal conductivity of the fluid"]
+        ],
+        "description": "A dimensionless number quantifying the enhancement of heat transfer due to convection over conduction across a boundary.",
+        "latex_equation": "\\mathrm{Nu} = \\frac{h L}{k}",
+        "code_equation": "Nu = (h * L) / k"
+    },
+    {
+        "name": "Fourier’s Law of Thermal Conduction",
+        "tags": ["Heat Transfer", "Conduction"],
+        "nomenclature": [
+            ["\\mathbf{q}", "heat flux"],
+            ["k", "thermal conductivity"],
+            ["\\nabla T", "temperature gradient"]
+        ],
+        "description": "Describes the heat flow through a material due to a temperature gradient, assuming steady-state conduction.",
+        "latex_equation": "\\mathbf{q} = -k \\nabla T",
+        "code_equation": "q = -k * grad_T"
+    },
+    {
+        "name": "Newton’s Law of Cooling",
+        "tags": ["Heat Transfer", "Convection"],
+        "nomenclature": [
+            ["T", "temperature of the body"],
+            ["T_{\\text{env}}", "temperature of the environment"],
+            ["k", "cooling constant"],
+            ["t", "time"]
+        ],
+        "description": "Models the rate of temperature change of an object exposed to an environment at a different temperature, valid for small temperature differences.",
+        "latex_equation": "\\frac{dT}{dt} = -k (T - T_{\\text{env}})",
+        "code_equation": "dT_dt = -k * (T - T_env)"
+    },
+    {
+        "name": "Darcy–Weisbach Equation",
+        "tags": ["Fluid Mechanics", "Pipe Flow", "Friction Loss"],
+        "nomenclature": [
+            ["h_f", "head loss due to friction"],
+            ["f", "Darcy friction factor"],
+            ["L", "length of the pipe"],
+            ["D", "diameter of the pipe"],
+            ["v", "average velocity of the fluid"],
+            ["g", "acceleration due to gravity"]
+        ],
+        "description": "Calculates the head loss due to friction in a pipe for incompressible fluid flow, essential for piping system design.",
+        "latex_equation": "h_f = f \\dfrac{L}{D} \\dfrac{v^2}{2g}",
+        "code_equation": "h_f = f * (L / D) * (v**2 / (2 * g))"
+    },
+    {
+        "name": "Bernoulli’s Equation",
+        "tags": ["Fluid Mechanics", "Conservation of Energy"],
+        "nomenclature": [
+            ["P", "pressure"],
+            ["\\rho", "fluid density"],
+            ["v", "fluid velocity"],
+            ["g", "acceleration due to gravity"],
+            ["h", "height above a reference level"]
+        ],
+        "description": "States that for an inviscid, incompressible fluid, the sum of pressure, kinetic, and potential energy per unit volume is constant along a streamline.",
+        "latex_equation": "P + \\dfrac{1}{2} \\rho v^2 + \\rho g h = \\text{constant}",
+        "code_equation": "P + 0.5 * rho * v**2 + rho * g * h == constant"
+    },
+    {
+        "name": "Arrhenius Equation",
+        "tags": ["Chemistry", "Kinetics"],
+        "nomenclature": [
+            ["k", "rate constant"],
+            ["A", "pre-exponential factor"],
+            ["E_a", "activation energy"],
+            ["R", "gas constant"],
+            ["T", "temperature in Kelvin"]
+        ],
+        "description": "Relates the rate constant of a chemical reaction to temperature and activation energy, used in reaction kinetics.",
+        "latex_equation": "k = A e^{-\\frac{E_a}{R T}}",
+        "code_equation": "k = A * math.exp(-E_a / (R * T))"
+    },
+    {
+        "name": "Mach Number",
+        "tags": ["Fluid Mechanics", "Aerodynamics", "Dimensionless Numbers"],
+        "nomenclature": [
+            ["M", "Mach number"],
+            ["v", "speed of the object"],
+            ["c", "speed of sound in the medium"]
+        ],
+        "description": "A dimensionless quantity representing the ratio of an object’s speed to the speed of sound, used to characterize compressibility effects.",
+        "latex_equation": "M = \\dfrac{v}{c}",
+        "code_equation": "M = v / c"
+    },
+    {
+        "name": "Peclet Number",
+        "tags": ["Heat Transfer", "Fluid Mechanics", "Dimensionless Numbers"],
+        "nomenclature": [
+            ["\\mathrm{Pe}", "Peclet number"],
+            ["u", "fluid velocity"],
+            ["L", "characteristic length"],
+            ["\\alpha", "thermal diffusivity"]
+        ],
+        "description": "Compares the rate of heat advection to heat diffusion in fluid flow, indicating the dominance of convection or conduction.",
+        "latex_equation": "\\mathrm{Pe} = \\dfrac{u L}{\\alpha}",
+        "code_equation": "Pe = (u * L) / alpha"
+    },
+    {
+        "name": "Shields Parameter",
+        "tags": ["Fluid Mechanics", "Sediment Transport", "Dimensionless Numbers"],
+        "nomenclature": [
+            ["\\tau_*", "Shields parameter"],
+            ["\\tau", "bed shear stress"],
+            ["\\rho_s", "sediment density"],
+            ["\\rho", "fluid density"],
+            ["g", "acceleration due to gravity"],
+            ["d", "grain diameter"]
+        ],
+        "description": "A dimensionless number used to predict the initiation of sediment motion in fluid flow, based on shear stress and particle properties.",
+        "latex_equation": "\\tau_* = \\dfrac{\\tau}{(\\rho_s - \\rho) g d}",
+        "code_equation": "tau_star = tau / ((rho_s - rho) * g * d)"
+    },
+    {
+        "name": "Stokes’ Law",
+        "tags": ["Fluid Mechanics", "Low Reynolds Number"],
+        "nomenclature": [
+            ["F_d", "drag force"],
+            ["\\mu", "dynamic viscosity"],
+            ["r", "radius of the sphere"],
+            ["v", "velocity of the sphere"]
+        ],
+        "description": "Describes the drag force on a small sphere moving slowly through a viscous fluid at low Reynolds numbers.",
+        "latex_equation": "F_d = 6 \\pi \\mu r v",
+        "code_equation": "F_d = 6 * math.pi * mu * r * v"
+    },
+    {
+        "name": "Weber Number",
+        "tags": ["Fluid Mechanics", "Multiphase Flow", "Dimensionless Numbers"],
+        "nomenclature": [
+            ["\\mathrm{We}", "Weber number"],
+            ["\\rho", "fluid density"],
+            ["v", "velocity"],
+            ["L", "characteristic length"],
+            ["\\sigma", "surface tension"]
+        ],
+        "description": "A dimensionless number comparing inertial forces to surface tension forces, used in multiphase flow analysis.",
+        "latex_equation": "\\mathrm{We} = \\dfrac{\\rho v^2 L}{\\sigma}",
+        "code_equation": "We = (rho * v**2 * L) / sigma"
+    },
+    {
+        "name": "Froude Number",
+        "tags": ["Fluid Mechanics", "Dimensionless Numbers"],
+        "nomenclature": [
+            ["\\mathrm{Fr}", "Froude number"],
+            ["v", "velocity"],
+            ["g", "acceleration due to gravity"],
+            ["L", "characteristic length"]
+        ],
+        "description": "A dimensionless number comparing flow inertia to gravitational forces, used in open-channel flow and ship hydrodynamics.",
+        "latex_equation": "\\mathrm{Fr} = \\dfrac{v}{\\sqrt{g L}}",
+        "code_equation": "Fr = v / math.sqrt(g * L)"
+    },
+    {
+        "name": "Heat Rate",
+        "tags": ["Heat Transfer", "Thermodynamics"],
+        "nomenclature": [
+            ["\\dot{Q}", "heat transfer rate"],
+            ["C_p", "specific heat capacity"],
+            ["\\dot{m}", "mass flow rate"],
+            ["\\Delta T", "temperature difference"]
+        ],
+        "description": "Calculates the rate of heat transfer in a fluid flow due to a temperature difference.",
+        "latex_equation": "\\dot{Q} = C_p \\dot{m} \\Delta T",
+        "code_equation": "Q_dot = C_p * m_dot * Delta_T"
+    },
+    {
+        "name": "Kinematic Equations for Linear Motion",
+        "tags": ["Physics", "Mechanics"],
+        "nomenclature": [
+            ["s", "displacement"],
+            ["u", "initial velocity"],
+            ["v", "final velocity"],
+            ["a", "acceleration"],
+            ["t", "time"]
+        ],
+        "description": "A set of equations describing linear motion under constant acceleration, used in classical mechanics.",
+        "latex_equation": "\\begin{cases} v = u + at \\\\ s = ut + \\dfrac{1}{2} at^2 \\\\ v^2 = u^2 + 2as \\end{cases}",
+        "code_equation": "v = u + a * t; s = u * t + 0.5 * a * t**2; v**2 == u**2 + 2 * a * s"
+    },
+    {
+        "name": "Newton’s Law of Gravitation",
+        "tags": ["Physics", "Gravitation"],
+        "nomenclature": [
+            ["F", "gravitational force"],
+            ["G", "gravitational constant"],
+            ["m_1", "mass of first body"],
+            ["m_2", "mass of second body"],
+            ["r", "distance between centers"]
+        ],
+        "description": "Describes the attractive force between two masses, assuming point masses or spherical symmetry.",
+        "latex_equation": "F = G \\dfrac{m_1 m_2}{r^2}",
+        "code_equation": "F = G * (m_1 * m_2) / r**2"
+    },
+    {
+        "name": "Biot Number",
+        "tags": ["Heat Transfer", "Dimensionless Numbers"],
+        "nomenclature": [
+            ["\\mathrm{Bi}", "Biot number"],
+            ["h", "convective heat transfer coefficient"],
+            ["L", "characteristic length"],
+            ["k", "thermal conductivity of the solid"]
+        ],
+        "description": "Compares internal conductive resistance to external convective resistance in heat transfer within a solid.",
+        "latex_equation": "\\mathrm{Bi} = \\dfrac{h L}{k}",
+        "code_equation": "Bi = (h * L) / k"
+    },
+    {
+        "name": "Surface Area of a Sphere",
+        "tags": ["Geometry", "Sphere"],
+        "nomenclature": [
+            ["A", "surface area"],
+            ["r", "radius"]
+        ],
+        "description": "Calculates the surface area of a sphere given its radius.",
+        "latex_equation": "A = 4 \\pi r^2",
+        "code_equation": "A = 4 * math.pi * r**2"
+    },
+    {
+        "name": "Surface Area of a Cylinder",
+        "tags": ["Geometry", "Cylinder"],
+        "nomenclature": [
+            ["A", "surface area"],
+            ["r", "radius of the base"],
+            ["h", "height"]
+        ],
+        "description": "Computes the total surface area of a cylinder, including the lateral surface and two bases.",
+        "latex_equation": "A = 2 \\pi r h + 2 \\pi r^2",
+        "code_equation": "A = 2 * math.pi * r * h + 2 * math.pi * r**2"
+    },
+    {
+        "name": "Churchill–Bernstein Equation",
+        "tags": ["Heat Transfer", "Fluid Mechanics"],
+        "nomenclature": [
+            ["\\mathrm{Nu}", "average Nusselt number"],
+            ["\\mathrm{Re}", "Reynolds number"],
+            ["\\mathrm{Pr}", "Prandtl number"]
+        ],
+        "description": "An empirical correlation for the average Nusselt number for a cylinder in cross flow, valid for a wide range of Reynolds and Prandtl numbers (Re > 1, Pr > 0.7).",
+        "latex_equation": "\\mathrm{Nu} = 0.3 + \\dfrac{0.62 \\mathrm{Re}^{1/2} \\mathrm{Pr}^{1/3}}{\\left[1 + \\left(\\dfrac{0.4}{\\mathrm{Pr}}\\right)^{2/3}\\right]^{1/4}} \\left[1 + \\left(\\dfrac{\\mathrm{Re}}{282000}\\right)^{5/8}\\right]^{4/5}",
+        "code_equation": "Nu = 0.3 + (0.62 * Re**0.5 * Pr**(1/3)) / (1 + (0.4 / Pr)**(2/3))**0.25 * (1 + (Re / 282000)**(5/8))**(4/5)"
+    },
+    {
+        "name": "Ohm’s Law",
+        "tags": ["Electricity", "Physics"],
+        "nomenclature": [
+            ["V", "voltage"],
+            ["I", "current"],
+            ["R", "resistance"]
+        ],
+        "description": "States that the current through a conductor between two points is directly proportional to the voltage across the points, given constant temperature.",
+        "latex_equation": "V = I R",
+        "code_equation": "V = I * R"
     }
 ]

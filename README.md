@@ -1,6 +1,6 @@
-# Equation Search App
+# Equation Search
 
-This Streamlit app enables fuzzy searching of mathematical and engineering equations.
+This Streamlit app provides a way to search and view a library of mathematical and engineering equations stored in a json file.
 
 ## How to Run
 
@@ -21,16 +21,11 @@ Modify `equations.json` to include additional equations with these fields:
 - `nomenclature`: List of `[variable, description]` pairs, with variables in LaTeX.
 - `description`: Equation description, supporting LaTeX.
 - `latex_equation`: LaTeX-formatted equation.
-- `code_equation`: Code-friendly string representation.
+- `code_equation`: Python string representation.
 
 Ensure proper JSON formatting.
 
 ## Usage
 
 - Enter a query (e.g., "circle", "triangle", "regression") in the search box.
-- View the top three matching equations, including their LaTeX equations, nomenclature, and descriptions.
-- Click "Copy to clipboard" to copy the code-friendly version for use in an IDE.
-
-## Deployment
-
-For Streamlit Cloud, upload `app.py`, `requirements.txt`, and `equations.json` to your repository.
+- Top match equation will display, and the next two closest will be listed in a dropdown menu.
